@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Terrare Moema · Raro por natureza</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --v:   #1E3322;
+  --vm:  #263D2A;
+  --vd:  #0f1e13;
+  --g:   #C4A882;
+  --gl:  #D9C4A0;
+  --gd:  #A08860;
+  --ow:  #F2EDE4;
+  --ow2: rgba(242,237,228,0.75);
+  --ow3: rgba(242,237,228,0.38);
+  --ow4: rgba(242,237,228,0.10);
+  --ok:  #4CAF82;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body { background: #060A07; font-family: 'Montserrat', sans-serif; color: var(--ow); min-height: 100vh; overflow-x: hidden; }
+
+/* ══ HERO ══ */
+.hero {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 80% 10%, rgba(196,168,130,.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 10% 90%, rgba(30,51,34,.8) 0%, transparent 50%),
+    linear-gradient(160deg, #080d09 0%, var(--v) 50%, #0f1e13 100%);
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center; padding: 60px 24px 80px;
+  position: relative; overflow: hidden;
+}
+.hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; border-radius: 50%; border: 1px solid rgba(196,168,130,.06); }
+.hero::after  { content: ''; position: absolute; bottom: -60px; left: -60px; width: 280px; height: 280px; border-radius: 50%; border: 1px solid rgba(196,168,130,.04); }
+
+.cm { position: absolute; width: 20px; height: 20px; border-color: rgba(196,168,130,.2); border-style: solid; }
+.cm.tl { top: 24px; left: 24px; border-width: 1px 0 0 1px; }
+.cm.tr { top: 24px; right: 24px; border-width: 1px 1px 0 0; }
+.cm.bl { bottom: 24px; left: 24px; border-width: 0 0 1px 1px; }
+.cm.br { bottom: 24px; right: 24px; border-width: 0 1px 1px 0; }
+
+.hero-tag { font-size: 7.5px; letter-spacing: 4px; color: var(--g); text-transform: uppercase; opacity: .65; margin-bottom: 24px; }
+.hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(38px, 8vw, 58px); font-weight: 300; line-height: 1.0; letter-spacing: -2px; color: var(--ow); margin-bottom: 20px; }
+.hero-title em  { font-style: italic; color: var(--g); }
+.hero-title strong { font-weight: 700; display: block; }
+.hero-rule { width: 40px; height: 1px; background: linear-gradient(to right, transparent, var(--g), transparent); margin: 0 auto 20px; }
+.hero-sub { font-size: 11px; color: var(--ow3); line-height: 1.85; letter-spacing: .3px; max-width: 320px; margin: 0 auto 36px; }
+.hero-sub em { color: var(--ow2); font-style: normal; }
+.hero-cta { padding: 16px 44px; background: linear-gradient(135deg, var(--gd) 0%, var(--g) 60%, var(--gl) 100%); color: var(--v); font-family: 'Montserrat', sans-serif; font-size: 9.5px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; border: none; cursor: pointer; position: relative; box-shadow: 0 12px 40px rgba(196,168,130,.2); transition: opacity .2s, transform .2s; text-decoration: none; display: inline-block; }
+.hero-cta::before { content: ''; position: absolute; inset: -3px; border: 1px solid rgba(196,168,130,.3); }
+.hero-cta:hover { opacity: .92; transform: translateY(-2px); }
+.hero-scroll { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); font-size: 7.5px; letter-spacing: 3px; color: rgba(196,168,130,.4); text-transform: uppercase; display: flex; flex-direction: column; align-items: center; gap: 8px; animation: pulse 2s infinite; }
+.hero-scroll::after { content: ''; width: 1px; height: 24px; background: linear-gradient(to bottom, rgba(196,168,130,.4), transparent); }
+@keyframes pulse { 0%,100% { opacity: .4; } 50% { opacity: .9; } }
+
+/* ══ ARGUMENTOS ══ */
+.argumentos { padding: 80px 24px; background: linear-gradient(to bottom, #060A07, var(--vd)); max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+.arg-tag { font-size: 7.5px; letter-spacing: 4px; color: var(--g); text-transform: uppercase; opacity: .55; text-align: center; margin-bottom: -20px; }
+.arg-item { display: flex; gap: 20px; align-items: flex-start; padding-bottom: 32px; border-bottom: 1px solid rgba(242,237,228,.05); }
+.arg-item:last-child { border-bottom: none; }
+.arg-dot { width: 4px; height: 4px; background: var(--g); border-radius: 50%; flex-shrink: 0; margin-top: 10px; box-shadow: 0 0 8px rgba(196,168,130,.4); }
+.arg-body { display: flex; flex-direction: column; gap: 6px; }
+.arg-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; color: var(--ow); line-height: 1.1; letter-spacing: -.3px; }
+.arg-title em { font-style: italic; color: var(--g); }
+.arg-title strong { font-weight: 700; }
+.arg-desc { font-size: 10px; color: var(--ow3); line-height: 1.8; letter-spacing: .2px; }
+.arg-desc em { color: var(--gl); font-style: normal; font-weight: 600; }
+
+/* DADO DESTAQUE */
+.dado-block { background: radial-gradient(ellipse at 70% 30%, rgba(196,168,130,.1) 0%, transparent 60%), linear-gradient(135deg, rgba(30,51,34,.6), rgba(15,30,19,.8)); border: 1px solid rgba(196,168,130,.18); padding: 28px 24px; display: flex; flex-direction: column; gap: 4px; position: relative; overflow: hidden; }
+.dado-block::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, transparent, var(--g), transparent); }
+.dado-pre  { font-size: 9px; color: var(--g); letter-spacing: 2px; font-weight: 600; text-transform: uppercase; }
+.dado-num  { font-family: 'Cormorant Garamond', serif; font-size: 72px; font-weight: 700; color: var(--g); line-height: .85; letter-spacing: -3px; }
+.dado-pos  { font-size: 9px; color: var(--ow2); letter-spacing: 2px; text-transform: uppercase; margin-top: 8px; }
+.dado-ctx  { font-family: 'Cormorant Garamond', serif; font-size: 13px; font-style: italic; color: var(--ow3); line-height: 1.6; margin-top: 4px; }
+.dado-ctx em { color: var(--g); font-style: normal; }
+.dado-aviso { font-size: 7.5px; color: var(--ow3); opacity: .5; margin-top: 8px; line-height: 1.5; }
+
+/* ESCASSEZ */
+.escassez-block { background: radial-gradient(ellipse at 50% 50%, rgba(196,168,130,.08) 0%, transparent 70%), linear-gradient(135deg, rgba(30,51,34,.8), rgba(15,30,19,.9)); border: 1px solid rgba(196,168,130,.25); padding: 28px 24px; display: flex; flex-direction: column; gap: 8px; position: relative; overflow: hidden; text-align: center; }
+.escassez-block::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, transparent, var(--g), transparent); }
+.escassez-block::after { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, transparent, var(--g), transparent); }
+.esc-tag { font-size: 7.5px; letter-spacing: 3px; color: var(--g); text-transform: uppercase; opacity: .7; }
+.esc-num { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 700; color: var(--g); line-height: .9; letter-spacing: -3px; }
+.esc-label { font-size: 9px; color: var(--ow2); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+.esc-desc { font-size: 10px; color: var(--ow3); line-height: 1.8; margin-top: 8px; }
+.esc-desc em { color: var(--gl); font-style: normal; font-weight: 600; }
+
+/* ══ FORMULÁRIO ══ */
+.form-section { background: radial-gradient(ellipse at 50% 0%, rgba(196,168,130,.07) 0%, transparent 60%), linear-gradient(to bottom, var(--vd), #060A07); padding: 72px 24px 80px; display: flex; flex-direction: column; align-items: center; }
+.form-header { text-align: center; margin-bottom: 40px; display: flex; flex-direction: column; gap: 10px; max-width: 380px; }
+.form-header-tag { font-size: 7.5px; letter-spacing: 4px; color: var(--g); text-transform: uppercase; opacity: .6; }
+.form-header-title { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: var(--ow); line-height: 1.1; letter-spacing: -.5px; }
+.form-header-title em { font-style: italic; color: var(--g); }
+.form-header-title strong { font-weight: 700; display: block; }
+.form-header-sub { font-size: 10px; color: var(--ow3); line-height: 1.8; letter-spacing: .2px; }
+
+.form-card { width: 100%; max-width: 460px; background: radial-gradient(ellipse at 80% 10%, rgba(196,168,130,.06) 0%, transparent 55%), linear-gradient(160deg, rgba(30,51,34,.7) 0%, rgba(10,20,12,.9) 100%); border: 1px solid rgba(196,168,130,.15); padding: 36px 28px 32px; position: relative; overflow: hidden; }
+.form-card::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px rgba(196,168,130,.06); pointer-events: none; }
+.form-card .cm { position: absolute; width: 12px; height: 12px; }
+.form-card .cm.tl { top: 14px; left: 14px; }
+.form-card .cm.tr { top: 14px; right: 14px; }
+.form-card .cm.bl { bottom: 14px; left: 14px; }
+.form-card .cm.br { bottom: 14px; right: 14px; }
+
+.form-progress { display: flex; flex-direction: column; gap: 6px; margin-bottom: 28px; }
+.prog-labels { display: flex; justify-content: space-between; font-size: 7.5px; letter-spacing: 1.5px; color: var(--ow3); text-transform: uppercase; }
+.prog-bar { width: 100%; height: 1px; background: rgba(242,237,228,.08); position: relative; }
+.prog-fill { position: absolute; left: 0; top: 0; height: 100%; background: linear-gradient(to right, var(--gd), var(--g)); transition: width .5s cubic-bezier(.4,0,.2,1); }
+
+.step { display: none; flex-direction: column; gap: 18px; }
+.step.active { display: flex; animation: stepIn .3s ease; }
+@keyframes stepIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
+
+.step-eyebrow { font-size: 7.5px; letter-spacing: 3px; color: var(--g); text-transform: uppercase; opacity: .6; border-left: 1.5px solid rgba(196,168,130,.35); padding-left: 10px; }
+.step-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--ow); line-height: 1.15; letter-spacing: -.2px; }
+.step-title em { font-style: italic; color: var(--g); }
+
+.field { display: flex; flex-direction: column; gap: 7px; }
+.field label { font-size: 8px; letter-spacing: 2px; color: var(--g); text-transform: uppercase; opacity: .7; }
+.field input { background: rgba(242,237,228,.05); border: 1px solid rgba(196,168,130,.18); padding: 14px 16px; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 300; color: var(--ow); outline: none; border-radius: 0; transition: border-color .2s, background .2s; width: 100%; -webkit-appearance: none; }
+.field input::placeholder { color: var(--ow3); }
+.field input:focus { border-color: rgba(196,168,130,.5); background: rgba(242,237,228,.08); }
+
+.perfis { display: flex; flex-direction: column; gap: 8px; }
+.perfil-opt { padding: 13px 16px; border: 1px solid rgba(196,168,130,.15); background: rgba(242,237,228,.03); cursor: pointer; transition: all .2s; display: flex; align-items: flex-start; gap: 13px; position: relative; }
+.perfil-opt:hover { border-color: rgba(196,168,130,.4); background: rgba(196,168,130,.07); }
+.perfil-opt.sel  { border-color: rgba(196,168,130,.55); background: rgba(196,168,130,.09); }
+.perfil-opt.sel::after { content: '✓'; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 11px; color: var(--g); }
+.p-dot { width: 7px; height: 7px; border: 1px solid rgba(196,168,130,.5); border-radius: 50%; flex-shrink: 0; margin-top: 4px; transition: background .2s; }
+.perfil-opt.sel .p-dot { background: var(--g); border-color: var(--g); }
+.p-info { display: flex; flex-direction: column; gap: 3px; }
+.p-nome { font-size: 11px; font-weight: 600; color: var(--ow); letter-spacing: .3px; }
+.p-desc { font-size: 9px; color: var(--ow3); line-height: 1.5; }
+
+.confirm-box { padding: 20px 18px; border: 1px solid rgba(196,168,130,.2); background: rgba(196,168,130,.05); display: flex; flex-direction: column; gap: 14px; }
+.confirm-title { font-size: 7.5px; letter-spacing: 2.5px; color: var(--g); text-transform: uppercase; opacity: .7; }
+.c-row { display: flex; flex-direction: column; gap: 2px; border-bottom: 1px solid rgba(242,237,228,.05); padding-bottom: 10px; }
+.c-row:last-child { border-bottom: none; padding-bottom: 0; }
+.c-key { font-size: 8px; letter-spacing: 1.5px; color: var(--ow3); text-transform: uppercase; }
+.c-val { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--ow); letter-spacing: -.2px; }
+.c-val em { color: var(--g); font-style: italic; }
+
+.btn-prox { padding: 15px 28px; background: linear-gradient(135deg, var(--gd) 0%, var(--g) 60%, var(--gl) 100%); color: var(--v); font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; border: none; cursor: pointer; width: 100%; position: relative; box-shadow: 0 8px 28px rgba(196,168,130,.2); transition: opacity .2s, transform .15s; -webkit-appearance: none; }
+.btn-prox::before { content: ''; position: absolute; inset: -2px; border: 1px solid rgba(196,168,130,.28); }
+.btn-prox:hover:not(:disabled) { opacity: .92; transform: translateY(-1px); }
+.btn-prox:disabled { opacity: .3; cursor: not-allowed; transform: none; }
+
+.btn-voltar { background: transparent; border: none; color: var(--ow3); font-size: 8px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; text-align: center; padding: 8px; width: 100%; font-family: 'Montserrat', sans-serif; transition: color .2s; }
+.btn-voltar:hover { color: var(--ow2); }
+
+.lgpd { font-size: 8px; color: var(--ow3); line-height: 1.6; text-align: center; opacity: .55; padding: 0 4px; }
+
+.success-wrap { display: none; flex-direction: column; align-items: center; text-align: center; gap: 20px; padding: 48px 20px; }
+.success-wrap.active { display: flex; animation: stepIn .4s ease; }
+.success-icon { width: 64px; height: 64px; border: 1px solid rgba(196,168,130,.35); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--g); position: relative; }
+.success-icon::before { content: ''; position: absolute; inset: -8px; border: 1px solid rgba(196,168,130,.12); border-radius: 50%; }
+.success-title { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: var(--ow); line-height: 1.15; }
+.success-title em { font-style: italic; color: var(--g); }
+.success-sub { font-size: 10px; color: var(--ow3); line-height: 1.8; max-width: 280px; }
+
+footer { background: #030506; border-top: 1px solid rgba(196,168,130,.08); padding: 36px 24px; text-align: center; display: flex; flex-direction: column; gap: 8px; }
+.footer-nome { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 5px; color: var(--g); text-transform: uppercase; opacity: .55; }
+.footer-sub { font-size: 8px; letter-spacing: 2px; color: var(--ow3); text-transform: uppercase; opacity: .5; }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="cm tl"></div><div class="cm tr"></div><div class="cm bl"></div><div class="cm br"></div>
+  <div class="hero-tag">Terrare · Moema · Pré-lançamento</div>
+  <h1 class="hero-title">
+    Raro<br>
+    <em>por</em><br>
+    <strong>natureza.</strong>
+  </h1>
+  <div class="hero-rule"></div>
+  <p class="hero-sub">
+    O que o vendedor não conta<br>
+    sobre investir em Moema<br>
+    <em>só aparece em conversa particular.</em>
+  </p>
+  <a href="#formulario" class="hero-cta">Quero fazer parte →</a>
+  <div class="hero-scroll">role</div>
+</section>
+
+<section class="argumentos">
+
+  <div class="arg-tag">por que esse projeto</div>
+
+  <div class="arg-item">
+    <div class="arg-dot"></div>
+    <div class="arg-body">
+      <div class="arg-title">Moema.<br><em>Um endereço que</em><br>não se explica.</div>
+      <div class="arg-desc">Bairro plano. Parque Ibirapuera a <em>6 minutos de bike</em>. Aeroporto Congonhas a <em>5 minutos de carro</em>. Metrô a 850 metros. Demanda constante, o ano inteiro.</div>
+    </div>
+  </div>
+
+  <div class="dado-block">
+    <div class="dado-pre">retorno de</div>
+    <div class="dado-num">271%</div>
+    <div class="dado-pos">ROI projetado · 60 meses</div>
+    <div class="dado-ctx">Renda fixa no mesmo período: <em>111%</em>.<br>A diferença é o endereço.</div>
+    <div class="dado-aviso">Projeção baseada em estudo de rentabilidade. Não é garantia de retorno.</div>
+  </div>
+
+  <div class="arg-item">
+    <div class="arg-dot"></div>
+    <div class="arg-body">
+      <div class="arg-title">O ativo paga<br><em>a si mesmo.</em><br>E sobra.</div>
+      <div class="arg-desc">Excedente líquido positivo desde o início. Parcela já deduzida no cálculo. <em>Sem vaga — condomínio menor, operação mais leve.</em></div>
+    </div>
+  </div>
+
+  <div class="escassez-block">
+    <div class="esc-tag">avant-première · vagas limitadas</div>
+    <div class="esc-num">50</div>
+    <div class="esc-label">unidades com condição especial</div>
+    <div class="esc-desc">De <em>198 studios disponíveis</em>, apenas 50 entram na condição Avant-Première. Os outros 148 pagam o preço do lançamento.</div>
+  </div>
+
+  <div class="arg-item">
+    <div class="arg-dot"></div>
+    <div class="arg-body">
+      <div class="arg-title">Quem entra<br><em>antes</em><br>paga menos.</div>
+      <div class="arg-desc">Pré-lançamento é uma janela real com prazo real. <em>As condições de agora não existem depois do lançamento.</em></div>
+    </div>
+  </div>
+
+</section>
+
+<section class="form-section" id="formulario">
+  <div class="form-header">
+    <div class="form-header-tag">avant-première · 50 unidades</div>
+    <h2 class="form-header-title">
+      A conversa<br>
+      <em>acontece</em><br>
+      <strong>em particular.</strong>
+    </h2>
+    <p class="form-header-sub">Preencha abaixo. Sem compromisso.<br>As condições são apresentadas em conversa.</p>
+  </div>
+
+  <div class="form-card">
+    <div class="cm tl"></div><div class="cm tr"></div><div class="cm bl"></div><div class="cm br"></div>
+
+    <div class="form-progress">
+      <div class="prog-labels">
+        <span id="stepLbl">Passo 1 de 3</span>
+        <span id="stepPct">33%</span>
+      </div>
+      <div class="prog-bar">
+        <div class="prog-fill" id="progFill" style="width:33%"></div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="step active" id="st1">
+      <div class="step-eyebrow">seus dados</div>
+      <div class="step-title">Como posso<br>te <em>chamar?</em></div>
+      <div class="field">
+        <label>Nome completo *</label>
+        <input type="text" id="fNome" placeholder="Seu nome" autocomplete="name" oninput="chk1()">
+      </div>
+      <div class="field">
+        <label>WhatsApp *</label>
+        <input type="tel" id="fTel" placeholder="(11) 99999-9999" autocomplete="tel" oninput="chk1()" maxlength="15">
+      </div>
+      <div class="field">
+        <label>E-mail *</label>
+        <input type="email" id="fEmail" placeholder="seu@email.com" autocomplete="email" oninput="chk1()">
+      </div>
+      <button class="btn-prox" id="btnSt1" onclick="goSt(2)" disabled>Continuar →</button>
+      <div class="lgpd">Seus dados são usados exclusivamente para contato sobre este projeto.</div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step" id="st2">
+      <div class="step-eyebrow">seu perfil</div>
+      <div class="step-title">Como você<br>investe <em>hoje?</em></div>
+      <div class="perfis">
+        <div class="perfil-opt" onclick="selPerfil(this,'Primeiro Investimento')">
+          <div class="p-dot"></div>
+          <div class="p-info"><div class="p-nome">Primeiro Investimento</div><div class="p-desc">Quero começar com o ativo certo</div></div>
+        </div>
+        <div class="perfil-opt" onclick="selPerfil(this,'Diversificador')">
+          <div class="p-dot"></div>
+          <div class="p-info"><div class="p-nome">Diversificador</div><div class="p-desc">Tenho outros ativos, quero adicionar imóvel</div></div>
+        </div>
+        <div class="perfil-opt" onclick="selPerfil(this,'Compositor')">
+          <div class="p-dot"></div>
+          <div class="p-info"><div class="p-nome">Compositor</div><div class="p-desc">Construo patrimônio ativo por ativo</div></div>
+        </div>
+        <div class="perfil-opt" onclick="selPerfil(this,'Flipador')">
+          <div class="p-dot"></div>
+          <div class="p-info"><div class="p-nome">Flipador</div><div class="p-desc">Opero com giro, compro e vendo estruturado</div></div>
+        </div>
+      </div>
+      <button class="btn-prox" id="btnSt2" onclick="goSt(3)" disabled>Continuar →</button>
+      <button class="btn-voltar" onclick="goSt(1)">← voltar</button>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step" id="st3">
+      <div class="step-eyebrow">confirmação</div>
+      <div class="step-title">Tudo <em>certo?</em></div>
+      <div class="confirm-box">
+        <div class="confirm-title">seus dados · revisão</div>
+        <div class="c-row"><div class="c-key">Nome</div><div class="c-val" id="cNome">—</div></div>
+        <div class="c-row"><div class="c-key">WhatsApp</div><div class="c-val" id="cTel">—</div></div>
+        <div class="c-row"><div class="c-key">E-mail</div><div class="c-val" id="cEmail">—</div></div>
+        <div class="c-row"><div class="c-key">Perfil</div><div class="c-val" id="cPerfil">—</div></div>
+      </div>
+      <button class="btn-prox" onclick="enviar()">Quero fazer parte →</button>
+      <button class="btn-voltar" onclick="goSt(2)">← voltar</button>
+      <div class="lgpd">Ao enviar você confirma que aceita ser contatado sobre este projeto.</div>
+    </div>
+
+    <!-- SUCESSO -->
+    <div class="success-wrap" id="successWrap">
+      <div class="success-icon">✓</div>
+      <div class="success-title"><em>Recebemos</em><br>seu contato.</div>
+      <div class="success-sub">Entraremos em contato via WhatsApp nas próximas horas.<br><br>As condições Avant-Première são apresentadas em conversa particular.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-nome">Terrare · Moema</div>
+  <div class="footer-sub">Raro por natureza · Pré-lançamento</div>
+</footer>
+
+<script>
+var dados = { nome:'', tel:'', email:'', perfil:'' };
+
+/* ══════════════════════════════════════════
+   INTEGRAÇÃO GOOGLE SHEETS
+   Mesma planilha do AUREN — coluna Projeto
+   diferencia automaticamente os leads
+══════════════════════════════════════════ */
+var SHEETS_URL = 'https://script.google.com/macros/s/AKfycby24mD1IDHfwCqLNewY68ql7LYq358a5ouT6TZXQD0pvw7MkmBEEf6E8_JEMEictEXg/exec';
+
+document.getElementById('fTel').addEventListener('input', function(e){
+  var v = e.target.value.replace(/\D/g,'');
+  if(v.length <= 11){
+    v = v.replace(/^(\d{2})(\d)/,'($1) $2');
+    v = v.replace(/(\d{5})(\d)/,'$1-$2');
+  }
+  e.target.value = v;
+  chk1();
+});
+
+function chk1(){
+  var n = document.getElementById('fNome').value.trim();
+  var t = document.getElementById('fTel').value.replace(/\D/g,'');
+  var e = document.getElementById('fEmail').value.trim();
+  var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+  document.getElementById('btnSt1').disabled = !(n.length > 1 && t.length >= 10 && emailOk);
+}
+
+function selPerfil(el, perfil){
+  document.querySelectorAll('.perfil-opt').forEach(function(o){ o.classList.remove('sel'); });
+  el.classList.add('sel');
+  dados.perfil = perfil;
+  document.getElementById('btnSt2').disabled = false;
+}
+
+function goSt(n){
+  if(n === 2){
+    dados.nome  = document.getElementById('fNome').value.trim();
+    dados.tel   = document.getElementById('fTel').value.trim();
+    dados.email = document.getElementById('fEmail').value.trim();
+  }
+  if(n === 3){
+    document.getElementById('cNome').textContent  = dados.nome;
+    document.getElementById('cTel').textContent   = dados.tel;
+    document.getElementById('cEmail').textContent = dados.email;
+    document.getElementById('cPerfil').innerHTML  = '<em>' + dados.perfil + '</em>';
+  }
+  document.querySelectorAll('.step').forEach(function(s){ s.classList.remove('active'); });
+  document.getElementById('st'+n).classList.add('active');
+  var lbls = ['','Passo 1 de 3','Passo 2 de 3','Passo 3 de 3'];
+  var pcts = ['','33%','66%','99%'];
+  document.getElementById('stepLbl').textContent  = lbls[n];
+  document.getElementById('stepPct').textContent  = pcts[n];
+  document.getElementById('progFill').style.width = pcts[n];
+  document.getElementById('formulario').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function enviar(){
+  var btn = document.querySelector('#st3 .btn-prox');
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+
+  var payload = {
+    nome:    dados.nome,
+    tel:     dados.tel,
+    email:   dados.email,
+    perfil:  dados.perfil,
+    projeto: 'TERRARE MOEMA',
+    data:    new Date().toLocaleString('pt-BR')
+  };
+
+  fetch(SHEETS_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .catch(function(){})
+  .finally(function(){
+    document.querySelector('.form-progress').style.display = 'none';
+    document.querySelectorAll('.step').forEach(function(s){ s.style.display = 'none'; });
+    document.getElementById('successWrap').classList.add('active');
+    document.getElementById('formulario').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+}
+</script>
+</body>
+</html>
