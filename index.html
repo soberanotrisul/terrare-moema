@@ -168,6 +168,25 @@ body { background: #060A07; font-family: 'Montserrat', sans-serif; color: var(--
 footer { background: #030506; border-top: 1px solid rgba(196,168,130,.08); padding: 36px 24px; text-align: center; display: flex; flex-direction: column; gap: 8px; }
 .footer-nome { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 5px; color: var(--g); text-transform: uppercase; opacity: .55; }
 .footer-sub { font-size: 8px; letter-spacing: 2px; color: var(--ow3); text-transform: uppercase; opacity: .5; }
+
+/* ══ ESCOLHA ══ */
+.escolha-wrap { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 8px 0; }
+.escolha-titulo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; color: var(--ow); line-height: 1.2; text-align: center; }
+.escolha-titulo em { font-style: italic; color: var(--g); }
+.escolha-divider { display: flex; align-items: center; gap: 12px; width: 100%; }
+.escolha-divider span { font-size: 8px; letter-spacing: 2px; color: var(--ow3); text-transform: uppercase; white-space: nowrap; }
+.escolha-divider::before, .escolha-divider::after { content: ''; flex: 1; height: 1px; background: rgba(196,168,130,.15); }
+/* ══ BOTÃO WHATSAPP ══ */
+.btn-wpp { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 28px; background: #25D366; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; text-decoration: none; width: 100%; position: relative; box-shadow: 0 8px 24px rgba(37,211,102,.2); transition: opacity .2s; cursor: pointer; border: none; }
+.btn-wpp::before { content: ''; position: absolute; inset: -2px; border: 1px solid rgba(37,211,102,.35); }
+.btn-wpp:hover { opacity: .9; }
+.btn-wpp svg { width: 17px; height: 17px; fill: #fff; flex-shrink: 0; }
+/* ══ SUCCESS ══ */
+.success-wpp { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 28px; background: #25D366; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; text-decoration: none; position: relative; box-shadow: 0 8px 24px rgba(37,211,102,.2); transition: opacity .2s; margin-top: 4px; }
+.success-wpp::before { content: ''; position: absolute; inset: -2px; border: 1px solid rgba(37,211,102,.35); }
+.success-wpp:hover { opacity: .9; }
+.success-wpp svg { width: 17px; height: 17px; fill: #fff; flex-shrink: 0; }
+.success-divider { width: 40px; height: 1px; background: linear-gradient(to right, transparent, rgba(196,168,130,.3), transparent); }
 </style>
 <!-- Meta Pixel -->
 <script>
@@ -255,95 +274,80 @@ src="https://www.facebook.com/tr?id=1939651659965505&ev=PageView&noscript=1"/>
 
 <section class="form-section" id="formulario">
   <div class="form-header">
-    <div class="form-header-tag">avant-première · 50 unidades</div>
+    <div class="form-header-tag">avant-première · 50 unidades R2V</div>
     <h2 class="form-header-title">
-      A conversa<br>
-      <em>acontece</em><br>
-      <strong>em particular.</strong>
+      Como prefere<br>
+      <em>entrar</em><br>
+      <strong>em contato?</strong>
     </h2>
-    <p class="form-header-sub">Preencha abaixo. Sem compromisso.<br>As condições são apresentadas em conversa.</p>
+    <p class="form-header-sub">Escolha o caminho mais fácil para você.</p>
   </div>
 
   <div class="form-card">
     <div class="cm tl"></div><div class="cm tr"></div><div class="cm bl"></div><div class="cm br"></div>
 
-    <div class="form-progress">
-      <div class="prog-labels">
-        <span id="stepLbl">Passo 1 de 3</span>
-        <span id="stepPct">33%</span>
-      </div>
-      <div class="prog-bar">
-        <div class="prog-fill" id="progFill" style="width:33%"></div>
-      </div>
+    <!-- ESCOLHA INICIAL -->
+    <div id="escolhaWrap" class="escolha-wrap">
+      <a href="https://wa.me/5511985508366?text=Ol%C3%A1%21+Vim+pelo+an%C3%BAncio+do+Terrare+Moema+e+quero+saber+mais+sobre+as+condi%C3%A7%C3%B5es+Avant-Premi%C3%A8re." class="btn-wpp" target="_blank" rel="noopener" onclick="trackWpp()">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </a>
+      <div class="escolha-divider"><span>ou prefere deixar seus dados</span></div>
+      <button class="btn-prox" onclick="mostrarForm()" style="background:transparent;color:var(--g);border:1px solid rgba(196,168,130,.35);box-shadow:none;">Preencher formulário →</button>
     </div>
 
-    <!-- STEP 1 -->
-    <div class="step active" id="st1">
-      <div class="step-eyebrow">seus dados</div>
-      <div class="step-title">Como posso<br>te <em>chamar?</em></div>
-      <div class="field">
-        <label>Nome completo *</label>
-        <input type="text" id="fNome" placeholder="Seu nome" autocomplete="name" oninput="chk1()">
-      </div>
-      <div class="field">
-        <label>WhatsApp *</label>
-        <input type="tel" id="fTel" placeholder="(11) 99999-9999" autocomplete="tel" oninput="chk1()" maxlength="15">
-      </div>
-      <div class="field">
-        <label>E-mail *</label>
-        <input type="email" id="fEmail" placeholder="seu@email.com" autocomplete="email" oninput="chk1()">
-      </div>
-      <button class="btn-prox" id="btnSt1" onclick="goSt(2)" disabled>Continuar →</button>
-      <div class="lgpd">Seus dados são usados exclusivamente para contato sobre este projeto.</div>
-    </div>
-
-    <!-- STEP 2 -->
-    <div class="step" id="st2">
-      <div class="step-eyebrow">seu perfil</div>
-      <div class="step-title">Como você<br>investe <em>hoje?</em></div>
-      <div class="perfis">
-        <div class="perfil-opt" onclick="selPerfil(this,'Primeiro Investimento')">
-          <div class="p-dot"></div>
-          <div class="p-info"><div class="p-nome">Primeiro Investimento</div><div class="p-desc">Quero começar com o ativo certo</div></div>
+    <!-- FORMULÁRIO SIMPLIFICADO -->
+    <div id="formWrap" style="display:none;width:100%">
+      <div class="step active" id="st1">
+        <div class="step-eyebrow">seus dados</div>
+        <div class="step-title">Como posso<br>te <em>chamar?</em></div>
+        <div class="field">
+          <label>Nome completo *</label>
+          <input type="text" id="fNome" placeholder="Seu nome" autocomplete="name" oninput="chk1()">
         </div>
-        <div class="perfil-opt" onclick="selPerfil(this,'Diversificador')">
-          <div class="p-dot"></div>
-          <div class="p-info"><div class="p-nome">Diversificador</div><div class="p-desc">Tenho outros ativos, quero adicionar imóvel</div></div>
+        <div class="field">
+          <label>WhatsApp *</label>
+          <input type="tel" id="fTel" placeholder="(11) 99999-9999" autocomplete="tel" oninput="chk1()" maxlength="15">
         </div>
-        <div class="perfil-opt" onclick="selPerfil(this,'Compositor')">
-          <div class="p-dot"></div>
-          <div class="p-info"><div class="p-nome">Compositor</div><div class="p-desc">Construo patrimônio ativo por ativo</div></div>
+        <div class="field">
+          <label>E-mail *</label>
+          <input type="email" id="fEmail" placeholder="seu@email.com" autocomplete="email" oninput="chk1()">
         </div>
-        <div class="perfil-opt" onclick="selPerfil(this,'Flipador')">
-          <div class="p-dot"></div>
-          <div class="p-info"><div class="p-nome">Flipador</div><div class="p-desc">Opero com giro, compro e vendo estruturado</div></div>
+        <div class="step-eyebrow" style="margin-top:4px">perfil</div>
+        <div class="perfis">
+          <div class="perfil-opt" onclick="selPerfil(this,'Primeiro Investimento')">
+            <div class="p-dot"></div>
+            <div class="p-info"><div class="p-nome">Primeiro Investimento</div></div>
+          </div>
+          <div class="perfil-opt" onclick="selPerfil(this,'Diversificador')">
+            <div class="p-dot"></div>
+            <div class="p-info"><div class="p-nome">Diversificador</div></div>
+          </div>
+          <div class="perfil-opt" onclick="selPerfil(this,'Compositor')">
+            <div class="p-dot"></div>
+            <div class="p-info"><div class="p-nome">Compositor</div></div>
+          </div>
+          <div class="perfil-opt" onclick="selPerfil(this,'Flipador')">
+            <div class="p-dot"></div>
+            <div class="p-info"><div class="p-nome">Flipador</div></div>
+          </div>
         </div>
+        <button class="btn-prox" id="btnEnviar" onclick="enviar()" disabled>Quero fazer parte →</button>
+        <div class="lgpd">Seus dados são usados exclusivamente para contato sobre este projeto.</div>
+        <button class="btn-voltar" onclick="voltarEscolha()">← voltar</button>
       </div>
-      <button class="btn-prox" id="btnSt2" onclick="goSt(3)" disabled>Continuar →</button>
-      <button class="btn-voltar" onclick="goSt(1)">← voltar</button>
-    </div>
-
-    <!-- STEP 3 -->
-    <div class="step" id="st3">
-      <div class="step-eyebrow">confirmação</div>
-      <div class="step-title">Tudo <em>certo?</em></div>
-      <div class="confirm-box">
-        <div class="confirm-title">seus dados · revisão</div>
-        <div class="c-row"><div class="c-key">Nome</div><div class="c-val" id="cNome">—</div></div>
-        <div class="c-row"><div class="c-key">WhatsApp</div><div class="c-val" id="cTel">—</div></div>
-        <div class="c-row"><div class="c-key">E-mail</div><div class="c-val" id="cEmail">—</div></div>
-        <div class="c-row"><div class="c-key">Perfil</div><div class="c-val" id="cPerfil">—</div></div>
-      </div>
-      <button class="btn-prox" onclick="enviar()">Quero fazer parte →</button>
-      <button class="btn-voltar" onclick="goSt(2)">← voltar</button>
-      <div class="lgpd">Ao enviar você confirma que aceita ser contatado sobre este projeto.</div>
     </div>
 
     <!-- SUCESSO -->
     <div class="success-wrap" id="successWrap">
       <div class="success-icon">✓</div>
       <div class="success-title"><em>Recebemos</em><br>seu contato.</div>
-      <div class="success-sub">Entraremos em contato via WhatsApp nas próximas horas.<br><br>As condições Avant-Première são apresentadas em conversa particular.</div>
+      <div class="success-sub">Entraremos em contato em breve.<br>Se preferir, fale agora pelo WhatsApp.</div>
+      <div class="success-divider"></div>
+      <a href="https://wa.me/5511985508366?text=Ol%C3%A1%21+Acabei+de+preencher+o+formul%C3%A1rio+do+Terrare+Moema." class="success-wpp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </a>
     </div>
   </div>
 </section>
@@ -363,6 +367,7 @@ var dados = { nome:'', tel:'', email:'', perfil:'' };
 ══════════════════════════════════════════ */
 var SHEETS_URL = 'https://script.google.com/macros/s/AKfycby24mD1IDHfwCqLNewY68ql7LYq358a5ouT6TZXQD0pvw7MkmBEEf6E8_JEMEictEXg/exec';
 
+/* Máscara telefone */
 document.getElementById('fTel').addEventListener('input', function(e){
   var v = e.target.value.replace(/\D/g,'');
   if(v.length <= 11){
@@ -373,62 +378,49 @@ document.getElementById('fTel').addEventListener('input', function(e){
   chk1();
 });
 
+function mostrarForm(){
+  document.getElementById('escolhaWrap').style.display = 'none';
+  document.getElementById('formWrap').style.display = 'block';
+  document.getElementById('formulario').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function voltarEscolha(){
+  document.getElementById('formWrap').style.display = 'none';
+  document.getElementById('escolhaWrap').style.display = 'flex';
+  document.getElementById('formulario').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function trackWpp(){
+  if(typeof fbq !== 'undefined'){
+    fbq('track', 'Contact', { content_name: 'WhatsApp Terrare Moema' });
+  }
+}
+
 function chk1(){
   var n = document.getElementById('fNome').value.trim();
   var t = document.getElementById('fTel').value.replace(/\D/g,'');
   var e = document.getElementById('fEmail').value.trim();
   var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
-  document.getElementById('btnSt1').disabled = !(n.length > 1 && t.length >= 10 && emailOk);
+  var temPerfil = dados.perfil !== '';
+  document.getElementById('btnEnviar').disabled = !(n.length > 1 && t.length >= 10 && emailOk && temPerfil);
 }
 
 function selPerfil(el, perfil){
   document.querySelectorAll('.perfil-opt').forEach(function(o){ o.classList.remove('sel'); });
   el.classList.add('sel');
   dados.perfil = perfil;
-  document.getElementById('btnSt2').disabled = false;
-  var perfilSlug = {
-    'Primeiro Investimento': 'primeiro_investimento',
-    'Diversificador':        'diversificador',
-    'Compositor':            'compositor',
-    'Flipador':              'flipador'
-  }[perfil] || 'outro';
-  fbq('trackCustom', 'SelecionouPerfilInvestidor', {
-    content_name:     perfil,
-    content_category: 'Perfil Investidor',
-    perfil_slug:      perfilSlug,
-    step:             2,
-    projeto:          'Terrare Moema'
-  });
-}
-
-function goSt(n){
-  if(n === 2){
-    dados.nome  = document.getElementById('fNome').value.trim();
-    dados.tel   = document.getElementById('fTel').value.trim();
-    dados.email = document.getElementById('fEmail').value.trim();
-    fbq('trackCustom', 'PreencheuDados', { content_name: 'Step1 Completo', projeto: 'Terrare Moema' });
+  chk1();
+  if(typeof fbq !== 'undefined'){
+    fbq('trackCustom', 'SelecionouPerfilInvestidor', { content_name: perfil, projeto: 'Terrare Moema' });
   }
-  if(n === 3){
-    fbq('trackCustom', 'SelecionouPerfil', { content_name: 'Step2 Completo', perfil: dados.perfil, projeto: 'Terrare Moema' });
-  }
-  if(n === 3){
-    document.getElementById('cNome').textContent  = dados.nome;
-    document.getElementById('cTel').textContent   = dados.tel;
-    document.getElementById('cEmail').textContent = dados.email;
-    document.getElementById('cPerfil').innerHTML  = '<em>' + dados.perfil + '</em>';
-  }
-  document.querySelectorAll('.step').forEach(function(s){ s.classList.remove('active'); });
-  document.getElementById('st'+n).classList.add('active');
-  var lbls = ['','Passo 1 de 3','Passo 2 de 3','Passo 3 de 3'];
-  var pcts = ['','33%','66%','99%'];
-  document.getElementById('stepLbl').textContent  = lbls[n];
-  document.getElementById('stepPct').textContent  = pcts[n];
-  document.getElementById('progFill').style.width = pcts[n];
-  document.getElementById('formulario').scrollIntoView({behavior:'smooth', block:'start'});
 }
 
 function enviar(){
-  var btn = document.querySelector('#st3 .btn-prox');
+  dados.nome  = document.getElementById('fNome').value.trim();
+  dados.tel   = document.getElementById('fTel').value.trim();
+  dados.email = document.getElementById('fEmail').value.trim();
+
+  var btn = document.getElementById('btnEnviar');
   btn.disabled = true;
   btn.textContent = 'Enviando...';
 
@@ -449,14 +441,10 @@ function enviar(){
   })
   .catch(function(){})
   .finally(function(){
-    fbq('track', 'Lead', {
-      content_name: 'Terrare Moema',
-      content_category: 'Imovel',
-      value: 0,
-      currency: 'BRL'
-    });
-    document.querySelector('.form-progress').style.display = 'none';
-    document.querySelectorAll('.step').forEach(function(s){ s.style.display = 'none'; });
+    if(typeof fbq !== 'undefined'){
+      fbq('track', 'Lead', { content_name: 'Terrare Moema', content_category: 'Imovel', value: 0, currency: 'BRL' });
+    }
+    document.getElementById('formWrap').style.display = 'none';
     document.getElementById('successWrap').classList.add('active');
     document.getElementById('formulario').scrollIntoView({behavior:'smooth', block:'start'});
   });
